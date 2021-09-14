@@ -5,7 +5,7 @@ exports.expected = {
   "This one pass too": {
     titleExpected: "ocs",
   },
-  "This one fails": {
-    titleExpected: "cod",
+  "This one now pass": {
+    titleExpected: "cs",
   },
 };
