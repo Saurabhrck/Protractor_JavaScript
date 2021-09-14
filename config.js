@@ -19,7 +19,7 @@ exports.config = {
     browser.driver.manage().window().maximize();
     jasmine.getEnv().addReporter(
       new HtmlReporter({
-        baseDirectory: "target/screenshots",
+        baseDirectory: "target/reports",
         takeScreenShotsOnlyForFailedSpecs: true,
         preserveDirectory: true,
         gatherBrowserLogs: false,
