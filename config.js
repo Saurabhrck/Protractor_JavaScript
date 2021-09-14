@@ -2,7 +2,7 @@ const HtmlReporter = require("protractor-beautiful-reporter");
 
 exports.config = {
   baseUrl: "https://angular.io/",
-  directConnect: false,
+  directConnect: true,
   seleniumAddress: "http://localhost:4444/wd/hub",
   specs: ["./src/specs/*.js"],
   framework: "jasmine",
