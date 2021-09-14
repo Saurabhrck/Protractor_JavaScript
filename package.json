@@ -1,0 +1,24 @@
+{
+  "name": "Protractor_JavaScript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "IF EXIST target RMDIR /S /Q target",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update",
+    "webdriver-start": "./node_modules/.bin/webdriver-manager start",
+    "protractor": "./node_modules/protractor/built/cli.js",
+    "test": "npm run clean && protractor config.js --suite Whole",
+    "test-smoke": "npm run clean && protractor config.js --suite Smoke",
+    "test-regression": "npm run clean && protractor config.js --suite Regression"
+  },
+  "keywords": [],
+  "author": "Saurabh Ghosh",
+  "license": "ISC",
+  "devDependencies": {
+    "protractor": "^7.0.0",
+    "jasmine": "^3.9.0",
+    "jasmine-data-provider": "^2.2.0",
+    "protractor-beautiful-reporter": "^1.3.6"
+  }
+}
