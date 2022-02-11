@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "IF EXIST target RMDIR /S /Q target",
-    "webdriver-update": "webdriver-manager update",
-    "webdriver-start": "webdriver-manager start",
-    // "protractor": "./node_modules/protractor/built/cli.js",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update",
+    "webdriver-start": "./node_modules/.bin/webdriver-manager start",
     "test": "npm run clean && protractor config.js --suite Whole",
     "test-smoke": "npm run clean && protractor config.js --suite Smoke",
     "test-regression": "npm run clean && protractor config.js --suite Regression",
