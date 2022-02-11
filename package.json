@@ -9,7 +9,8 @@
     "webdriver-start": "./node_modules/.bin/webdriver-manager start",
     "test": "npm run clean && protractor config.js --suite Whole",
     "test-smoke": "npm run clean && protractor config.js --suite Smoke",
-    "test-regression": "npm run clean && protractor config.js --suite Regression"
+    "test-regression": "npm run clean && protractor config.js --suite Regression",
+    "test-adhoc": "npm run clean && protractor config.js --suite Adhoc"
   },
   "keywords": [],
   "author": "Saurabh Ghosh",
