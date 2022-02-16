@@ -1,4 +1,8 @@
 const HtmlReporter = require("protractor-beautiful-reporter");
+const AllureReporter = require("jasmine-allure-reporter");
+const {
+  allureReporter,
+} = require("jasmine-allure-reporter/src/Jasmine2AllureReporter");
 
 exports.config = {
   baseUrl: "https://angular.io/",
@@ -17,24 +21,36 @@ exports.config = {
   },
   onPrepare: () => {
     browser.driver.manage().window().maximize();
+    jasmine.getEnv().addReporter({
+      specStarted(result) {
+        jasmine.getEnv().currentSpec = result;
+      },
+      specDone() {
+        jasmine.getEnv().currentSpec = null;
+      },
+    });
     jasmine.getEnv().addReporter(
-      new HtmlReporter({
-        baseDirectory: "target/reports",
-        takeScreenShotsOnlyForFailedSpecs: true,
-        preserveDirectory: true,
-        gatherBrowserLogs: false,
-        docTitle: "Test Report",
-        clientDefaults: {
-          columnSettings: {
-            displayTime: true,
-            displayBrowser: true,
-            displaySessionId: false,
-            displayOS: false,
-            inlineScreenshots: false,
-          },
-        },
-      }).getJasmine2Reporter()
+      new AllureReporter({
+        resultsDir: "target/allure-results",
+      })
     );
+    jasmine.getEnv().afterEach(function (done) {
+      if (jasmine.getEnv().currentSpec.failedExpectations.length > 0) {
+        console.log("Attaching report");
+        browser.takeScreenshot().then(function (png) {
+          allure.createAttachment(
+            "Screenshot",
+            function () {
+              return new Buffer(png, "base64");
+            },
+            "image/png"
+          )();
+          done();
+        });
+      } else {
+        done();
+      }
+    });
   },
   suites: {
     Whole: ["./src/specs/*.js"],
