@@ -23,3 +23,7 @@ Run Only Smoke Test Suite
 Run Only Regression Test Suite
 
 > npm run test-regression
+
+Serve allure report
+
+> npm run report
