@@ -1,11 +1,11 @@
 exports.expected = {
   "This one pass": {
-    titleExpected: "docs",
+    titleExpected: "start",
   },
   "This one pass too": {
-    titleExpected: "ocs",
+    titleExpected: "art",
   },
-  "This one now pass": {
+  "This one fails": {
     titleExpected: "ab",
   },
 };

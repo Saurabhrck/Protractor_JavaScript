@@ -2,7 +2,7 @@ class Home {
   getStartedCta;
   constructor() {
     this.getStartedCta = element(
-      by.cssContainingText("a[href='docs']", "Get Started")
+      by.cssContainingText("a[href='start']", "Get Started")
     );
   }
 }
